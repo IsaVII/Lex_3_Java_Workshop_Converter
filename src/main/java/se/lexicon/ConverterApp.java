@@ -38,7 +38,7 @@ public class ConverterApp {
         IO.println(stringBuilder.toString());
 
         //choice handling
-        int choice = getMenuNumberFromUserInRange(1, 4);
+        int choice = getMenuNumberFromUserInRange("Choose an option", 1, 4);
         switch (choice){
             case 1:
                 converter_Bmi.runConverter();
@@ -63,12 +63,12 @@ public class ConverterApp {
     }
 
 
-    private int getMenuNumberFromUserInRange(int minIncl, int maxIncl){
+    public static int getMenuNumberFromUserInRange(String message, int minIncl, int maxIncl){
         int menuNumber = 0;
         boolean validInput = false;
 
         while (!validInput) {
-            String userInput = IO.readln("Choose an option (" + minIncl + "-" + maxIncl + "): ");
+            String userInput = IO.readln(message + " (" + minIncl + "-" + maxIncl + "): ");
 
             try {
                 menuNumber = Integer.parseInt(userInput);
@@ -81,5 +81,24 @@ public class ConverterApp {
         return  menuNumber;
     }
 
+
+    public static double getNumberFromUser(String message){
+
+        double number = 0;
+        boolean validInput = false;
+
+        while (!validInput) {
+            String userInput = IO.readln(message);
+
+            try {
+                number = Double.parseDouble(userInput);
+                return number;
+
+            } catch (NumberFormatException e) {
+                IO.println("Invalid input. Please enter a valid number.");
+            }
+        }
+        return  0;
+    }
 
 }

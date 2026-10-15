@@ -14,8 +14,8 @@ public class Converter_Bmi extends Converter {
     public void runConverter() {
         super.runConverter();
         
-        double weight = getNumberFromUser("Enter your weight in kg: ");
-        double height = getNumberFromUser("Enter your height in metres: ");
+        double weight = ConverterApp.getNumberFromUser("Enter your weight in kg: ");
+        double height = ConverterApp.getNumberFromUser("Enter your height in metres: ");
         
         BmiResult result = getBmiResult(weight, height);
         IO.println(result.getPrintResult());
@@ -44,24 +44,7 @@ public class Converter_Bmi extends Converter {
     }
 
 
-    private double getNumberFromUser(String message){
-        
-        double number = 0;
-        boolean validInput = false;
-
-        while (!validInput) {
-            String userInput = IO.readln(message);
-
-            try {
-               number = Double.parseDouble(userInput);
-               return number;
-
-            } catch (NumberFormatException e) {
-                IO.println("Invalid input. Please enter a valid number.");
-            }
-        }
-        return  0;
-    }
+   
 
 }
 

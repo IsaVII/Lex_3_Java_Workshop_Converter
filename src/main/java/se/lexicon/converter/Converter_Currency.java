@@ -14,6 +14,30 @@ public class Converter_Currency extends  Converter {
     @Override
     public void runConverter() {
         super.runConverter();
+
+        StringBuilder menu = new StringBuilder();
+        menu.append("Convert:\n");
+        menu.append("1. SEK to USD\n");
+        menu.append("2. SEK to EUR");
+        IO.println(menu.toString());
+        
+        int choice = ConverterApp.getMenuNumberFromUserInRange("Your choice:", 1, 2);
+        switch (choice) {
+            case 1:
+                double sekToUsd = ConverterApp.getNumberFromUser("Enter amount in SEK: ");
+                double usd = convertSekToUsd(sekToUsd);
+                IO.println("Result: " + sekToUsd + " SEK = " + usd + " USD.");;
+                break;
+            case 2:
+                double sekToEur = ConverterApp.getNumberFromUser("Enter amount in SEK: ");
+                double eur = convertSekToEur(sekToEur);
+                IO.println("Result: " + sekToEur + " SEK = " + eur + " EUR.");
+                break;
+            default:
+                IO.println("Invalid choice.");
+                break;
+        }
+        IO.println("");
     }
 
     private static double convertSekToUsd(double sek) {
