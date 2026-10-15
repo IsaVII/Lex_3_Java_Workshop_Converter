@@ -13,7 +13,7 @@ public class ConversionResult {
     }
     
     public String getPrintResult() {
-        return String.format("%-20s %-3s %s%n", input,converterSign, output);
+        return String.format("%-15s %-3s %s%n", input,converterSign, output);
     }
     
     
