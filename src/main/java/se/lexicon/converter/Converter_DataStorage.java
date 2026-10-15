@@ -1,9 +1,12 @@
 package se.lexicon.converter;
 
+import se.lexicon.ConverterApp;
+
 public class Converter_DataStorage extends  Converter {
     static final int DATA_SIZE = 1024;
     
-    public Converter_DataStorage() {
+    public Converter_DataStorage(ConverterApp converterApp) {
+        super(converterApp);
         this.converterName = "Data Storage Converter";
     }
     

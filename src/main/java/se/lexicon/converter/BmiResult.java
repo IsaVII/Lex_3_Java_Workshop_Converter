@@ -1,6 +1,8 @@
 package se.lexicon.converter;
 
 
+import java.util.Locale;
+
 public class BmiResult{
     double bmi;
     String category;
@@ -10,14 +12,9 @@ public class BmiResult{
         this.category = "";
     }
     
-    public BmiResult(double bmi, String category) {
-        this.bmi = bmi;
-        this.category = category;
-    }
-
     public String getPrintResult( ) {
         
-        return String.format("BMI: %.2f, Category: %s%n", bmi, category);
+        return String.format(Locale.ENGLISH, "BMI: %.2f, Category: %s%n", bmi, category);
     }
     
     public void setBmi(double bmi) {
