@@ -24,12 +24,13 @@ public class Converter_Currency extends  Converter {
         int choice = ConverterApp.getMenuNumberFromUserInRange("Your choice:", 1, 2);
         switch (choice) {
             case 1:
-                double sekToUsd = ConverterApp.getNumberFromUser("Enter amount in SEK: ");
+                double sekToUsd = ConverterApp.getNumberFromUser("Enter amount in SEK: ", false);
+                
                 double usd = convertSekToUsd(sekToUsd);
                 IO.println("Result: " + sekToUsd + " SEK = " + usd + " USD.");;
                 break;
             case 2:
-                double sekToEur = ConverterApp.getNumberFromUser("Enter amount in SEK: ");
+                double sekToEur = ConverterApp.getNumberFromUser("Enter amount in SEK: ", false);
                 double eur = convertSekToEur(sekToEur);
                 IO.println("Result: " + sekToEur + " SEK = " + eur + " EUR.");
                 break;

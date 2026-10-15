@@ -14,8 +14,8 @@ public class Converter_Bmi extends Converter {
     public void runConverter() {
         super.runConverter();
         
-        double weight = ConverterApp.getNumberFromUser("Enter your weight in kg: ");
-        double height = ConverterApp.getNumberFromUser("Enter your height in metres: ");
+        double weight = getNumberInRangeFromUser("Enter your weight in kg: ", 30, 400);
+        double height = getNumberInRangeFromUser("Enter your height in metres: ", 0.5, 2.5);
         
         BmiResult result = getBmiResult(weight, height);
         IO.println(result.getPrintResult());
@@ -43,6 +43,30 @@ public class Converter_Bmi extends Converter {
         return result;
     }
 
+
+    private double getNumberInRangeFromUser(String message, double allowedRangeMin, double allowedRangeMax) {
+
+        double number = 0;
+        boolean validInput = false;
+
+        while (!validInput) {
+
+            try {
+                number =  ConverterApp.getNumberFromUser(message, false);
+              
+                if (number < allowedRangeMin || number > allowedRangeMax) {
+                    IO.println("Invalid input. Please enter a realistic number between " + allowedRangeMin + " and " + allowedRangeMax + ".");
+                } else {
+                    validInput = true;
+                }
+
+            } catch (NumberFormatException e) {
+                IO.println("Invalid input. Please enter a valid number.");
+
+            }
+        }
+        return  number;
+    }
 
    
 

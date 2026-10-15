@@ -23,12 +23,12 @@ public class Converter_DataStorage extends  Converter {
         int choice = ConverterApp.getMenuNumberFromUserInRange("Your choice:", 1, 2);
         switch (choice) {
             case 1:
-                double mbToGb = ConverterApp.getNumberFromUser("Enter amount in MB: ");
+                double mbToGb = ConverterApp.getNumberFromUser("Enter amount in MB: ", false);
                 double gb = convertMbToGb(mbToGb);
                 IO.println("Result: " + mbToGb + " MB = " + Math.round(gb * 100.0) / 100.0 + " GB.");;
                 break;
             case 2:
-                double kbToMb = ConverterApp.getNumberFromUser("Enter amount in KB: ");
+                double kbToMb = ConverterApp.getNumberFromUser("Enter amount in KB: ", false);
                 double mb = convertKbToMb(kbToMb);
                 IO.println("Result: " + kbToMb + " KB = " + Math.round(mb * 100.0) / 100.0 + " MB.");
                 break;
