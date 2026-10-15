@@ -1,13 +1,22 @@
 package se.lexicon.converter;
 
 
-public class Converter_Bmi{
+public class Converter_Bmi extends Converter {
     
+    public Converter_Bmi() {
+        this.converterName = "BMI Converter";
+    }
+
+    @Override
+    public void runConverter() {
+        super.runConverter();
+    }
+
     private double calculateBMI(double weight, double height) {
         return weight / (Math.pow(height, 2));
     }
 
-    public BmiResult getBmiResult(double weight, double height) {
+    private BmiResult getBmiResult(double weight, double height) {
         BmiResult result = new BmiResult();
         
         double bmi =  calculateBMI(weight, height);

@@ -1,14 +1,23 @@
 package se.lexicon.converter;
 
-public class Converter_Currency {
+public class Converter_Currency extends  Converter {
     static final double EXCHANGE_RATE_SEK_TO_USD = 0.10;
     static final double EXCHANGE_RATE_SEK_TO_EUR = 0.089;
     
-    public static double convertSekToUsd(double sek) {
+    public Converter_Currency() {
+        this.converterName = "Currency Converter";
+    }
+
+    @Override
+    public void runConverter() {
+        super.runConverter();
+    }
+
+    private static double convertSekToUsd(double sek) {
         return sek * EXCHANGE_RATE_SEK_TO_USD;
     }
-    
-    public static double convertSekToEur(double sek) {
+
+    private static double convertSekToEur(double sek) {
         return sek * EXCHANGE_RATE_SEK_TO_EUR;
     }
 
