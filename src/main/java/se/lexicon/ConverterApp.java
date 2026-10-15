@@ -10,30 +10,21 @@ public class ConverterApp {
     Converter_Currency converter_Currency;
     Converter_DataStorage converter_DataStorage;
     
-    
     void main() {
         converter_Bmi = new Converter_Bmi(this);
         converter_Currency = new Converter_Currency(this);
         converter_DataStorage = new Converter_DataStorage(this);
         
         while (runConverterChoicePart()) {
-            String userChoice = getYesNoChoiceFromUser("Continue?");
-            switch (userChoice) {
-                case "yes":
-                    IO.println();
-                    break;
-                case "no":
-                    IO.println("Goodbye!");
-                    return;
-                    
-                default:
-                    IO.println("Invalid choice. Please try again.");
+            if (userWantToStop()) {
+                IO.println("Goodbye!");
+                return;
             }
+            
+            IO.println();
         }
-     
- 
     }
-    
+
     public boolean runConverterChoicePart() {
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -67,10 +58,12 @@ public class ConverterApp {
                 IO.println("Invalid choice. Please try again.");
                 return false;
         }
-        
-        
-        
         return true;
+    }
+
+    private boolean userWantToStop() {
+        String userChoice = getYesNoChoiceFromUser("Continue?");
+        return userChoice.equals("no");
     }
 
     public static String getYesNoChoiceFromUser(String message){
