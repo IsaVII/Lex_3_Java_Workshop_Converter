@@ -22,7 +22,7 @@ public class Converter_Bmi extends Converter {
     }
 
     private double calculateBMI(double weight, double height) {
-        return weight / (Math.pow(height, 2));
+        return Math.round(weight / (Math.pow(height, 2)) * 100.0) / 100.0;
     }
 
     private BmiResult getBmiResult(double weight, double height) {
