@@ -26,6 +26,8 @@ public class Converter_DataStorage extends  Converter {
                 double mbToGb = ConverterApp.getNumberFromUser("Enter amount in MB: ", false);
                 double gb = convertMbToGb(mbToGb);
                 IO.println("Result: " + mbToGb + " MB = " + gb   + " GB.");;
+
+                printTimeStamp();
                 
                 addConversionResult(mbToGb +" MB " , gb + " GB" , "=");
                 break;
@@ -33,6 +35,8 @@ public class Converter_DataStorage extends  Converter {
                 double kbToMb = ConverterApp.getNumberFromUser("Enter amount in KB: ", false);
                 double mb = convertKbToMb(kbToMb);
                 IO.println("Result: " + kbToMb + " KB = " + mb + " MB.");
+
+                printTimeStamp();
                 
                 addConversionResult(kbToMb +" KB " , mb + " MB" , "=");
                 break;
@@ -40,7 +44,6 @@ public class Converter_DataStorage extends  Converter {
                 IO.println("Invalid choice.");
                 break;
         }
-        IO.println("");
     }
     
     private static double convertMbToGb(double megabytes) {    

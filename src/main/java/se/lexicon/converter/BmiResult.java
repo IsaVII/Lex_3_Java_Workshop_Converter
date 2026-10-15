@@ -14,7 +14,7 @@ public class BmiResult{
     
     public String getPrintResult( ) {
         
-        return String.format(Locale.ENGLISH, "BMI: %.2f, Category: %s%n", bmi, category);
+        return String.format(Locale.ENGLISH, "BMI: %.2f, Category: %s", bmi, category);
     }
     
     public void setBmi(double bmi) {

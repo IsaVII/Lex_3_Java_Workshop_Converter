@@ -29,6 +29,8 @@ public class Converter_Currency extends  Converter {
                 double usd = convertSekToUsd(sekToUsd);
                 IO.println("Result: " + sekToUsd + " SEK = " + usd + " USD.");;
 
+                printTimeStamp();
+                
                 addConversionResult(sekToUsd +" SEK " , usd + " USD" , "=");
                 
                 break;
@@ -36,6 +38,8 @@ public class Converter_Currency extends  Converter {
                 double sekToEur = ConverterApp.getNumberFromUser("Enter amount in SEK: ", false);
                 double eur = convertSekToEur(sekToEur);
                 IO.println("Result: " + sekToEur + " SEK = " + eur + " EUR.");
+
+                printTimeStamp();
                 
                 addConversionResult(sekToEur +" SEK " , eur + " EUR" , "=");
                 break;
@@ -43,7 +47,6 @@ public class Converter_Currency extends  Converter {
                 IO.println("Invalid choice.");
                 break;
         }
-        IO.println("");
 
     }
 

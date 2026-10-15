@@ -86,7 +86,7 @@ public class ConverterApp {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("=== Conversion History ===\n");
+        stringBuilder.append("\n=== Conversion History ===\n");
 
         int index = 1;
         for (ConversionResult result : conversionResults) {

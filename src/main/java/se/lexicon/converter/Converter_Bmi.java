@@ -3,8 +3,6 @@ package se.lexicon.converter;
 
 import se.lexicon.ConverterApp;
 
-import javax.xml.transform.Result;
-
 public class Converter_Bmi extends Converter {
     
     public Converter_Bmi(ConverterApp converterApp) {
@@ -20,10 +18,13 @@ public class Converter_Bmi extends Converter {
         double height = getNumberInRangeFromUser("Enter your height in metres: ", 0.5, 2.5);
 
         BmiResult result = getBmiResult(weight, height);
-        IO.println(result.getPrintResult());
+        IO.println("Result: " + result.getPrintResult());
+        
+        printTimeStamp();
 
         addConversionResult("BMI "+result.getBmi() , result.getCategory() , "->");
     }
+
 
     private double calculateBMI(double weight, double height) {
         return Math.round(weight / (Math.pow(height, 2)) * 100.0) / 100.0;
