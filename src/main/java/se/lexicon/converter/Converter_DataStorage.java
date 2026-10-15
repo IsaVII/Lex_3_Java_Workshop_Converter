@@ -47,10 +47,10 @@ public class Converter_DataStorage extends  Converter {
     }
     
     private static double convertMbToGb(double megabytes) {    
-        return Math.round(megabytes / 1024 * 100.0) / 100.0;
+        return Math.round(megabytes / DATA_SIZE * 100.0) / 100.0;
     }
     
     private static double convertKbToMb(double kilobytes) {
-        return Math.round(kilobytes / 1024 * 100.0) / 100.0;
+        return Math.round(kilobytes / DATA_SIZE * 100.0) / 100.0;
     }
 }

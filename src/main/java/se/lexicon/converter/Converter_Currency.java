@@ -27,7 +27,7 @@ public class Converter_Currency extends  Converter {
                 double sekToUsd = ConverterApp.getNumberFromUser("Enter amount in SEK: ", false);
                 
                 double usd = convertSekToUsd(sekToUsd);
-                IO.println("Result: " + sekToUsd + " SEK = " + usd + " USD.");;
+                IO.println("Result: " + sekToUsd + " SEK = " + usd + " USD."); 
 
                 printTimeStamp();
                 

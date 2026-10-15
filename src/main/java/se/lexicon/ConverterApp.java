@@ -10,11 +10,11 @@ import java.util.List;
 
 public class ConverterApp {
 
-    Converter_Bmi converter_Bmi;
-    Converter_Currency converter_Currency;
-    Converter_DataStorage converter_DataStorage;
+    private Converter_Bmi converter_Bmi;
+    private Converter_Currency converter_Currency;
+    private Converter_DataStorage converter_DataStorage;
     
-    List<ConversionResult> conversionResults;
+    private List<ConversionResult> conversionResults;
     
     void main() {
         converter_Bmi = new Converter_Bmi(this);
