@@ -41,11 +41,11 @@ public class Converter_Currency extends  Converter {
     }
 
     private static double convertSekToUsd(double sek) {
-        return sek * EXCHANGE_RATE_SEK_TO_USD;
+        return Math.round(sek * EXCHANGE_RATE_SEK_TO_USD * 100.0) / 100.0;
     }
 
     private static double convertSekToEur(double sek) {
-        return sek * EXCHANGE_RATE_SEK_TO_EUR;
+        return Math.round(sek * EXCHANGE_RATE_SEK_TO_EUR * 100.0) / 100.0;
     }
 
 }

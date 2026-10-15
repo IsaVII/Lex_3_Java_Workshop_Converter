@@ -17,7 +17,18 @@ public class ConverterApp {
         converter_DataStorage = new Converter_DataStorage(this);
         
         while (runConverterChoicePart()) {
-            
+            String userChoice = getYesNoChoiceFromUser("Continue?");
+            switch (userChoice) {
+                case "yes":
+                    IO.println();
+                    break;
+                case "no":
+                    IO.println("Goodbye!");
+                    return;
+                    
+                default:
+                    IO.println("Invalid choice. Please try again.");
+            }
         }
      
  
@@ -62,6 +73,24 @@ public class ConverterApp {
         return true;
     }
 
+    public static String getYesNoChoiceFromUser(String message){
+        String choice = "";
+        boolean validInput = false;
+
+        while (!validInput) {
+            String userInput = IO.readln(message + " (yes/no): ");
+
+            if (userInput.equalsIgnoreCase("yes") || userInput.equalsIgnoreCase("no")) {
+                choice = userInput.toLowerCase();
+                validInput = true;
+            } else {
+                IO.println("Invalid input. Please enter 'yes' or 'no'.");
+            }
+           
+        }
+        return  choice;
+    }
+    
 
     public static int getMenuNumberFromUserInRange(String message, int minIncl, int maxIncl){
         int menuNumber = 0;
