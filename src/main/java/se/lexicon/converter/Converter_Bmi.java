@@ -3,6 +3,8 @@ package se.lexicon.converter;
 
 import se.lexicon.ConverterApp;
 
+import javax.xml.transform.Result;
+
 public class Converter_Bmi extends Converter {
     
     public Converter_Bmi(ConverterApp converterApp) {
@@ -13,12 +15,14 @@ public class Converter_Bmi extends Converter {
     @Override
     public void runConverter() {
         super.runConverter();
-        
+
         double weight = getNumberInRangeFromUser("Enter your weight in kg: ", 30, 400);
         double height = getNumberInRangeFromUser("Enter your height in metres: ", 0.5, 2.5);
-        
+
         BmiResult result = getBmiResult(weight, height);
         IO.println(result.getPrintResult());
+
+        addConversionResult("BMI "+result.getBmi() , result.getCategory() , "->");
     }
 
     private double calculateBMI(double weight, double height) {

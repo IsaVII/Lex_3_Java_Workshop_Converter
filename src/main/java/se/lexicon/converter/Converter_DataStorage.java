@@ -25,12 +25,16 @@ public class Converter_DataStorage extends  Converter {
             case 1:
                 double mbToGb = ConverterApp.getNumberFromUser("Enter amount in MB: ", false);
                 double gb = convertMbToGb(mbToGb);
-                IO.println("Result: " + mbToGb + " MB = " + Math.round(gb * 100.0) / 100.0 + " GB.");;
+                IO.println("Result: " + mbToGb + " MB = " + gb   + " GB.");;
+                
+                addConversionResult(mbToGb +" MB " , gb + " GB" , "=");
                 break;
             case 2:
                 double kbToMb = ConverterApp.getNumberFromUser("Enter amount in KB: ", false);
                 double mb = convertKbToMb(kbToMb);
-                IO.println("Result: " + kbToMb + " KB = " + Math.round(mb * 100.0) / 100.0 + " MB.");
+                IO.println("Result: " + kbToMb + " KB = " + mb + " MB.");
+                
+                addConversionResult(kbToMb +" KB " , mb + " MB" , "=");
                 break;
             default:
                 IO.println("Invalid choice.");
@@ -40,10 +44,10 @@ public class Converter_DataStorage extends  Converter {
     }
     
     private static double convertMbToGb(double megabytes) {    
-        return megabytes / 1024;
+        return Math.round(megabytes / 1024 * 100.0) / 100.0;
     }
     
     private static double convertKbToMb(double kilobytes) {
-        return kilobytes / 1024;
+        return Math.round(kilobytes / 1024 * 100.0) / 100.0;
     }
 }

@@ -22,5 +22,11 @@ public class Converter {
 
     public void runConverter(){
         
+        IO.println(getConverterTitle());
+    }
+    
+    public void addConversionResult(String input, String output, String converterSign){
+        ConversionResult conversionResult = new ConversionResult(input, output, converterSign);
+        converterApp.addToConversionResults(conversionResult);
     }
 }

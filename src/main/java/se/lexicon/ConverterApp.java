@@ -1,8 +1,12 @@
 package se.lexicon;
 
+import se.lexicon.converter.ConversionResult;
 import se.lexicon.converter.Converter_Bmi;
 import se.lexicon.converter.Converter_Currency;
 import se.lexicon.converter.Converter_DataStorage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConverterApp {
 
@@ -10,20 +14,26 @@ public class ConverterApp {
     Converter_Currency converter_Currency;
     Converter_DataStorage converter_DataStorage;
     
+    List<ConversionResult> conversionResults;
+    
     void main() {
         converter_Bmi = new Converter_Bmi(this);
         converter_Currency = new Converter_Currency(this);
         converter_DataStorage = new Converter_DataStorage(this);
+        conversionResults = new ArrayList<>();
         
         while (runConverterChoicePart()) {
             if (userWantToStop()) {
+                printConversionResults();
                 IO.println("Goodbye!");
                 return;
             }
             
             IO.println();
+            
         }
     }
+
 
     public boolean runConverterChoicePart() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -52,6 +62,7 @@ public class ConverterApp {
                 converter_DataStorage.runConverter();
                 break;
             case 4:
+                printConversionResults();
                 IO.println("Goodbye!");
                 return false;
             default:
@@ -67,6 +78,27 @@ public class ConverterApp {
         return userChoice.equals("no");
     }
 
+    private void printConversionResults() {
+
+        if (conversionResults.isEmpty()) {
+            IO.println("No conversion results to display.");
+            return;
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("=== Conversion History ===\n");
+
+        int index = 1;
+        for (ConversionResult result : conversionResults) {
+            stringBuilder.append(index).append(". ").append(result.getPrintResult());
+            index++;
+        }
+
+        stringBuilder.append(Printer.getPrintLine()).append("\n");
+        stringBuilder.append("Total conversions: ").append(conversionResults.size());
+        IO.println(stringBuilder.toString());
+    }
+    
     public static String getYesNoChoiceFromUser(String message){
         String choice = "";
         boolean validInput = false;
@@ -136,6 +168,10 @@ public class ConverterApp {
             }
         }
         return  number;
+    }
+    
+    public void addToConversionResults(ConversionResult conversionResult){
+        conversionResults.add(conversionResult);
     }
 
 }

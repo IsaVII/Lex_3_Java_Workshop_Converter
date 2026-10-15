@@ -25,5 +25,13 @@ public class BmiResult{
         this.category = category;
     }
     
+    public double getBmi() {
+        return bmi;
+    }
+    
+    public String getCategory() {
+        return category;
+    }
+    
    
 }
