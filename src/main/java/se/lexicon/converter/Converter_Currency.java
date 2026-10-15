@@ -28,17 +28,23 @@ public class Converter_Currency extends  Converter {
                 
                 double usd = convertSekToUsd(sekToUsd);
                 IO.println("Result: " + sekToUsd + " SEK = " + usd + " USD.");;
+
+                addConversionResult(sekToUsd +" SEK " , usd + " USD" , "=");
+                
                 break;
             case 2:
                 double sekToEur = ConverterApp.getNumberFromUser("Enter amount in SEK: ", false);
                 double eur = convertSekToEur(sekToEur);
                 IO.println("Result: " + sekToEur + " SEK = " + eur + " EUR.");
+                
+                addConversionResult(sekToEur +" SEK " , eur + " EUR" , "=");
                 break;
             default:
                 IO.println("Invalid choice.");
                 break;
         }
         IO.println("");
+
     }
 
     private static double convertSekToUsd(double sek) {
