@@ -60,6 +60,7 @@ public class ConverterApp {
         }
         return true;
     }
+    
 
     private boolean userWantToStop() {
         String userChoice = getYesNoChoiceFromUser("Continue?");
@@ -97,14 +98,17 @@ public class ConverterApp {
                 validInput = menuNumber >= minIncl && menuNumber <= maxIncl;
                 
             } catch (NumberFormatException e) {
-                IO.println("Invalid input. Please enter a valid number.");
+            }
+            
+            if (!validInput) {
+                IO.println("Invalid choice. Please enter a number between " + minIncl + " and " + maxIncl + ".");
             }
         }
         return  menuNumber;
     }
 
 
-    public static double getNumberFromUser(String message){
+    public static double getNumberFromUser(String message, boolean allowNegative){
 
         double number = 0;
         boolean validInput = false;
@@ -114,13 +118,24 @@ public class ConverterApp {
 
             try {
                 number = Double.parseDouble(userInput);
-                return number;
+                if (allowNegative && number < 0) {
+                    validInput = true;
+                    
+                } else if (!allowNegative && number < 0) {
+                    validInput = false;
+                    IO.println("Invalid input. The number cannot be negative.");
+                }
+                else 
+                {       
+                    validInput = true;
+                }
 
             } catch (NumberFormatException e) {
                 IO.println("Invalid input. Please enter a valid number.");
+                
             }
         }
-        return  0;
+        return  number;
     }
 
 }
